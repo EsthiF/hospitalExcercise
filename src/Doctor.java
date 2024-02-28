@@ -1,15 +1,17 @@
 import enums.DiseaseDescription;
+import util.RandomUtil;
 
 public class Doctor extends Person {
 
     private int roomNumber;
     private DiseaseDescription diseaseSpecialty;
-    public Doctor(int id, String name, int age, int roomNumber, DiseaseDescription diseaseSpecialty) {
-        super(id, name, age);
+    public Doctor( String name, int age, int roomNumber, DiseaseDescription diseaseSpecialty) {
+        super(name, age);
         this.roomNumber = roomNumber;
         this.diseaseSpecialty = diseaseSpecialty;
     }
-   public int getRoomNumber() {
+
+    public int getRoomNumber() {
         return roomNumber;
     }
     public void setRoomNumber(int roomNumber) {

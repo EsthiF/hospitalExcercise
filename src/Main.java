@@ -8,20 +8,30 @@ public class Main {
         Hospital hospital = new Hospital();
         hospital.setName("Uni Spital");
 
-        for (int i = 0; i < hospital.getNumberOfRooms(); i++) {
-            Room room = new Room();
-            Doctor doctor = new Doctor("Doctor" + (i + 1), "Specialization" + (i + 1));
-            Nurse nurse = new Nurse("Nurse" + (i + 1));
-            room.setDoctor(doctor);
-            room.setNurse(nurse);
+        Room[] rooms = new Room[hospital.getNumberOfRooms()];
+        for (int i = 0; i < rooms.length; i++) {
+            rooms[i] = new Room();
+            rooms[i].setRoomNumber(i + 1);
         }
+        hospital.setRooms(rooms);
+
+        for (int i = 0; i < hospital.getNumberOfRooms(); i++) {
+            int age = RandomUtil.getRandomAge(18, 100);
+            Doctor doctor = new Doctor("Doctor" + (i + 1), age, i + 1, RandomUtil.generateRandomDiseaseDescription());
             Patient[] patients = new Patient[5];
             for (int j = 0; j < patients.length; j++) {
-                int age = RandomUtil.getRandomAge(18, 100);
-                patients[j] = new Patient("Patient" + (j + 1), "Disease" + (j + 1), age);
+                patients[j] = new Patient("Patient" + (j + 1), age);
             }
-            room.setPatients(patients);{
-            System.out.println(hospital)
+            Nurse nurse = new Nurse("Nurse" + (i + 1), age, i + 1);
+            rooms[i].setDoctor(doctor);
+            rooms[i].setPatients(patients);
+            rooms[i].setNurse(nurse);
         }
 
+        System.out.println(hospital);
+        for (Room room : hospital.getRooms()) {
+            System.out.println(room);
+        }
+    }
+}
 

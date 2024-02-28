@@ -4,8 +4,8 @@ import util.RandomUtil;
 public class Patient extends Person{
     private Disease disease;
 
-    public Patient(String id, String name, int age) {
-        super();
+    public Patient( String name, int age) {
+        super(name, age);
         this.disease= new Disease(RandomUtil.generateRandomDiseaseDescription(), RandomUtil.getRandomDay(3,22));
     }
 

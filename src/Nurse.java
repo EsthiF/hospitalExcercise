@@ -2,12 +2,8 @@ public class Nurse extends Person{
 
     private int roomNumber;
 
-    public Nurse(int roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
-    public Nurse(int id, String name, int age, int roomNumber) {
-        super(id, name, age);
+    public Nurse( String name, int age, int roomNumber) {
+        super(name, age);
         this.roomNumber = roomNumber;
     }
 
